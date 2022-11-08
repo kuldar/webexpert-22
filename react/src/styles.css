@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Colors */
+  --white: #ffffff;
+  --metal-light: #e9edf4;
+  --metal-light-2: #d3dae8;
+  --metal-light-3: #a7b7d8;
+  --metal-middle: #7a818e;
+  --metal-middle-2: #3f4756;
+  --metal-dark: #111317;
+  --metal: #2b303a;
+  --red: #e1261c;
+  --red-dark: #911812;
+
+  /* Gradients */
+  --gradient-metal-dark: linear-gradient(
+    90deg,
+    var(--metal) 0%,
+    var(--metal-middle-2) 100%
+  );
+  --gradient-metal-light: linear-gradient(
+    90deg,
+    var(--metal-light-2) 0%,
+    var(--metal-light-3) 100%
+  );
+  --gradient-red: linear-gradient(90deg, var(--red-dark) 0%, var(--red) 100%);
+
+  /* Data Images */
+  --checkmark: url("data:image/svg+xml,%3Csvg width='14' height='10' viewBox='0 0 14 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4.74414 9.80367C5.01758 10.0654 5.48242 10.0654 5.75586 9.80367L13.7949 2.10733C14.0684 1.84555 14.0684 1.40052 13.7949 1.13874L12.8105 0.196335C12.5371 -0.065445 12.0996 -0.065445 11.8262 0.196335L5.26367 6.47906L2.17383 3.54712C1.90039 3.28534 1.46289 3.28534 1.18945 3.54712L0.205078 4.48953C-0.0683594 4.75131 -0.0683594 5.19633 0.205078 5.45812L4.74414 9.80367Z' fill='%23111317'/%3E%3C/svg%3E%0A");
+}
+
+/* Number input */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+  background: linear-gradient(var(--white), var(--white)) padding-box,
+    var(--gradient-metal-light) border-box;
+}
+
+input[type="number"]:focus {
+  background: linear-gradient(var(--white), var(--white)) padding-box,
+    var(--gradient-metal-dark) border-box;
+}
+
+/* Checkbox input */
+input[type="checkbox"] {
+  background: linear-gradient(var(--white), var(--white)) padding-box,
+    var(--gradient-metal-light) border-box;
+}
+
+input[type="checkbox"]:checked {
+  background: var(--checkmark) padding-box center no-repeat,
+    linear-gradient(var(--white), var(--white)) padding-box,
+    var(--gradient-metal-light) border-box;
+}
+
+input[type="checkbox"]:checked:focus {
+  background: var(--checkmark) padding-box center no-repeat,
+    linear-gradient(var(--white), var(--white)) padding-box,
+    var(--gradient-metal-dark) border-box;
+}
+
+input[type="checkbox"]:focus {
+  background: linear-gradient(var(--white), var(--white)) padding-box,
+    var(--gradient-metal-dark) border-box;
+}
+
+li::before {
+  position: absolute;
+  left: 0;
+  top: 0;
+  content: "";
+  display: block;
+  width: 1rem; /* 16px */
+  height: 0.25rem; /* 4px */
+  transform: translateX(-1.5rem) translateY(0.8125rem);
+  background: var(--gradient-red);
+}
+
+li li::before {
+  width: 0.75rem; /* 12px */
+  height: 0.25rem; /* 4px */
+  transform: translateX(-1.25rem) translateY(0.8125rem);
+  background: var(--gradient-metal-light);
+}
